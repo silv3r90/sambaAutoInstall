@@ -1,7 +1,7 @@
-git clone https://github.com/silv3r90/sambaAutoInstall.git
+~~~git clone https://github.com/silv3r90/sambaAutoInstall.git~~~
 
-cd sambaAutoInstall
+~~~cd sambaAutoInstall~~~
 
-chmod +x setup_samba.sh
+~~~chmod +x setup_samba.sh~~~
 
-./setup_samba.sh
+~~~./setup_samba.sh~~~
