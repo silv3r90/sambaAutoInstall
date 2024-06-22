@@ -1,10 +1,7 @@
 #!/bin/bash
 
-# Benutzername und Samba-Passwort abfragen
-read -p "Bitte geben Sie den Benutzernamen ein: " username
-read -sp "Bitte geben Sie das Passwort für den Benutzer ein: " user_password
-echo
-read -sp "Bitte geben Sie das Samba-Passwort ein: " samba_password
+# Samba-Passwort abfragen
+read -sp "Bitte geben Sie das Passwort für den Benutzer kevin ein: " user_password
 echo
 
 # Pfad für das Samba-Share abfragen
@@ -20,20 +17,20 @@ sudo apt update
 sudo apt install samba -y
 
 # Schritt 2: Benutzer erstellen
-sudo useradd "$username" -s /sbin/nologin
+sudo useradd kevin -s /sbin/nologin
 
 # Schritt 3: Passwort setzen
-echo "$username:$user_password" | sudo chpasswd
+echo "kevin:$user_password" | sudo chpasswd
 
 # Schritt 4: Samba Passwort setzen
-echo -e "$samba_password\n$samba_password" | sudo smbpasswd -a "$username"
+echo -e "$user_password\n$user_password" | sudo smbpasswd -a kevin
 
 # Schritt 5: Verzeichnis erstellen, falls es nicht existiert
 if [ ! -d "$share_path" ]; then
     sudo mkdir -p "$share_path"
 fi
 
-sudo chown -R "$username:$username" "$share_path"
+sudo chown -R kevin:kevin "$share_path"
 sudo chmod -R 0755 "$share_path"
 
 # Schritt 6: smb.conf bearbeiten
@@ -43,7 +40,7 @@ sudo bash -c "cat >> /etc/samba/smb.conf <<EOL
 path = $share_path
 browsable = yes
 read only = no
-valid users = $username
+valid users = kevin
 EOL"
 
 # Schritt 7: Samba-Dienste neu starten
