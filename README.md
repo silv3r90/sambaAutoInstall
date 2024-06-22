@@ -3,7 +3,7 @@
 
 - [x] alle eingaben zu beginn
 
-- [ ] am ende clear screen und erst dann ip ausgabe
+- [x] am ende clear screen und erst dann ip ausgabe
 
 - [ ] benutzername ganz oben im code variabel machen
 
