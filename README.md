@@ -10,4 +10,4 @@
 
 - [ ] ein extra sh script für wenn schon ein samba share existiert und nur hinzugefügt werden soll.
 
-- [ ] im installationsstring hinzufügen das git installiert wird, wenn noch nicht vorhanden
+- [x] im installationsstring hinzufügen das git installiert wird, wenn noch nicht vorhanden
