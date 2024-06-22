@@ -12,8 +12,9 @@ share_path=${share_path:-$default_path}
 # Share-Namen abfragen
 read -p "Bitte geben Sie den Namen des Shares an: " share_name
 
-# Schritt 1: Update und Installation von Samba
-sudo apt update
+# Schritt 1: Installation von Samba
+sudo apt-get update -y
+sudo apt-get upgrade -y
 sudo apt install samba -y
 
 # Schritt 2: Benutzer erstellen
